@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  border-color: aquamarine;
+  background-color:rgb(190, 190, 235);
+}
+.head{
+    position: absolute;
+    color: rgb(248, 170, 148);
+    top:5px;
+    left:5px;
+}
+.header{
+    text-align: center;
+    color:rgb(13, 2, 24);
+    font-size: 30px;
+    background-color:gray;
+    box-shadow: 0px 0px 10px black;
+
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+.column img {
+  opacity: 0.7; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+    transform: scale(1.05);
+  box-shadow:  0px 4px 10px black;
+  opacity: 1;
+}
+.row{
+    gap:20px;
+    margin:auto;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column{
+    margin-top:10px;
+    margin-left:5rem;
+}
+
+.container {
+  position: relative;
+  display: none;
+}
+
+img{
+    border:5px solid rgb(168, 193, 240);
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+}
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: rgb(214, 26, 26);
+  font-size: 20px;
+}
+.arrow{
+    margin: auto;
+}
+.top{
+    position: relative;
+    left:197vh;
+    margin-bottom: 15px;
+    color: rgb(21, 44, 255);
+}
+.footer{
+    text-align: center;
+    font-size: 30px;
+    background-color: gray;
+    box-shadow: 0px 0px 10px black;
+
+}
+i{
+    font-size:50px;
+}
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="header">
+    <a href="index.html"><i class='bx bxs-caret-left-circle head'></i>  </a> 
+<br>
+  <h2><b><u>Art Gallery</u></b></h2>
+  <br>
+  <p><u>Click on the images below and scroll to get a zoom in view:</u></p><br>
+</div>
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <img src="/cool-responsive-portfolio-main/images/jihyo.jpeg" alt="jihyo" style="width:100%" border="1px solid black" onclick="myFunction(this);">
+  </div>
+  
+  <div class="column">
+    <img src="/cool-responsive-portfolio-main/images/tiger.jpeg" alt="tiger" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="/cool-responsive-portfolio-main/images/madhubani.jpeg" alt="madhubani" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img src="/cool-responsive-portfolio-main/images/mata.jpeg" alt="mata" style="width:100%" onclick="myFunction(this);">
+      </div>
+    <div class="column">
+      <img src="/cool-responsive-portfolio-main/images/arman.jpeg" alt="arman" style="width:110%" height="420px" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="/cool-responsive-portfolio-main/images/girl.jpeg" alt="girl" style="width:100%" onclick="myFunction(this);">
+    </div>
+ 
+  </div>
+
+<div class="row">
+    <div class="column">
+        <img src="/cool-responsive-portfolio-main/images/didi.jpeg" alt="woman" style="width:110%" height="410px" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="/cool-responsive-portfolio-main/images/jija.jpeg" alt="man" style="width:100%" onclick="myFunction(this);">
+      </div>
+</div>
+  
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<center>
+    <div class="arrow"><i class='bx bxs-caret-left-circle bx-fade-left'></i>&ensp;<i class='bx bxs-caret-right-circle bx-fade-right'></i></div>
+</center>
+
+<a href="gallery.html"><i class='bx bxs-up-arrow-circle bx-flashing top'></i></a>
+
+<div class="footer">
+    <br>
+    <p>If you want to make any drawing or sketch in fair price.</p><br>
+    <h3><u>Contact me:</u></h3>
+    <div class="social-media">
+        <a href="mailto:nileshpathak226@gmail.com" className="details">
+            <i class='bx bxs-envelope'></i></a>
+        <a href="https://m.facebook.com/profile.php?id=100011987705730"><i class='bx bxl-facebook'></i></a>
+        <a href="https://x.com/Raj_hu_456"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.instagram.com/nilesh_pathak_01?igsh=MXd6NzJqMjIxMzR3Yw=="><i class='bx bxl-instagram-alt'></i></a>
+        <a href="https://www.linkedin.com/in/nilesh-pathak-686203229/"><i class='bx bxl-linkedin'></i></a>
+    
+    </div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</body>
+</html>
